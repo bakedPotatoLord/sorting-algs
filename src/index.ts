@@ -1,8 +1,6 @@
-import { swap, shuffle } from "./helpers"
-import { bubbleSort } from "./sorts/bubbleSort"
-import { selectionSort } from "./sorts/selectionSort";
-import { insertionSort } from "./sorts/insertionSort";
-import { mergeSort } from "./sorts/mergeSort";
+import {  shuffle } from "./helpers"
+import { bubbleSort, insertionSort, mergeSort, selectionSort } from "./sorts"
+
 
 export let working = false
 export let active = -1
