@@ -1,4 +1,4 @@
-import { wait } from './helpers'
+
 import './style.css'
 
 
@@ -65,6 +65,13 @@ document.getElementById("selectionSort")
 .onclick=()=>{if(!working){selectionSort()}}
 document.getElementById("insertionSort")
 .onclick=()=>{if(!working){insertionSort()}}
+document.getElementById("mergeSort")
+.onclick=async ()=>{
+  if(!working){
+    arr = await mergeSort(arr)
+    endSort()
+  }
+}
 
 function shuffle(){
   console.log('randomizing')
@@ -74,6 +81,32 @@ function shuffle(){
   draw()
 }
 
+async function mergeSort(marr:number[]){
+  const mid = marr.length /2
+  active = arr.indexOf(marr[0])
+  draw()
+  await new Promise((res,rej)=>setTimeout(res,100))
+  
+  return marr.length < 2 ?
+  marr :
+  await merge(
+    await mergeSort(marr.slice(0,mid)),
+    await mergeSort(marr.slice(mid))
+  )
+
+
+}
+
+async function merge(left:number[],right:number[]){
+  console.log("merge start")
+  let arr = []
+  while(left.length && right.length){
+    arr.push(
+      left[0] < right[0] ? left.shift() : right.shift()
+    )
+  }
+  return [...arr,...left,...right]
+}
 
 export async function bubbleSort (){  
   let bubbleSortI = 1
