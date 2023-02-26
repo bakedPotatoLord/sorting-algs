@@ -11,11 +11,3 @@ export function swap(arr:any[],i1:number|string,i2:number|string){
   arr[i2] = temp;
 }
 
-export function shuffle(){
-  console.log('shuffling')
-  setActive(-1)
-  for(let i in arr){
-    swap(arr,Math.floor(Math.random()*20),i)
-  }
-  draw(arr)
-}

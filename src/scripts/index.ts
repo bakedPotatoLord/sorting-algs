@@ -1,4 +1,4 @@
-import {  shuffle } from "./helpers"
+import {  shuffle } from './configs'
 import { bubbleSort, insertionSort, mergeSort, selectionSort } from "./sorts"
 import { initMergeSort } from "./sorts/mergeSort"
 
