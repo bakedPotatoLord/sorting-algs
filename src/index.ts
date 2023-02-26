@@ -15,14 +15,12 @@ async function selectionSort(){
     }
     swap(arr,max,i)
   }
-  active = -1
-  draw()
-  working = false
+  endSort()
 }
 
 
-
 async function insertionSort(){
+  console.log("insertion starting")
   working = true
   for(let i=1;i<arr.length;i++){
 
@@ -32,16 +30,14 @@ async function insertionSort(){
     while(j>=0 && arr[j] > temp){
       arr[j+1] = arr[j];
       j--;
-      await wait(10)
+      await new Promise((res)=>setTimeout(res,10))
       active = j
       draw()
     }
     arr[j+1] = temp;
+    draw()
   }
-
-  active = -1
-  draw()
-  working = false
+  endSort()
 }
 
 
@@ -52,33 +48,25 @@ export function swap(arr:any[],i1:number|string,i2:number|string){
 }
 
 let working = false
-
 let active = -1
-
 let sorted = true
-
 let c = document.querySelector('canvas')
 let ctx = c.getContext('2d')
-
 const cw = c.width = 400
-
 const ch = c.height = 300
-
 let arr=Array(40).fill(undefined).map((_el,i)=>(250/39)*(i+1))
 
+
 document.getElementById("randomize")
-.onclick = ()=>{if(!working) randomize()}
-
+.onclick = ()=>{if(!working) shuffle()}
 document.getElementById("bubbleSort")
-.onclick= ()=>{if(!working){startBubbleSort()}}
-
+.onclick= ()=>{if(!working){bubbleSort()}}
 document.getElementById("selectionSort")
 .onclick=()=>{if(!working){selectionSort()}}
-
 document.getElementById("insertionSort")
-.onclick=()=>{if(!working){insertionSort}}
+.onclick=()=>{if(!working){insertionSort()}}
 
-function randomize(){
+function shuffle(){
   console.log('randomizing')
   for(let i in arr){
     swap(arr,Math.floor(Math.random()*20),i)
@@ -87,16 +75,9 @@ function randomize(){
 }
 
 
-let bubbleSortI = 1
-
-export function startBubbleSort (){
-  bubbleSortI = 1
-  working = true
-  bubbleSort()
-}
-
-
 export async function bubbleSort (){  
+  let bubbleSortI = 1
+  working = true
 
   while(bubbleSortI<arr.length){
     if(arr[bubbleSortI-1] > arr[bubbleSortI]){
@@ -111,7 +92,12 @@ export async function bubbleSort (){
       await new Promise((res,rej)=>setTimeout(res,0))
     }
   }
+  endSort()
+}
+
+function endSort(){
   active = -1
+  working = false
   draw()
 }
 
