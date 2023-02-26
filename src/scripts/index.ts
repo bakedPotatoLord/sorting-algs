@@ -9,14 +9,14 @@ let c = document.querySelector('canvas')
 let ctx = c.getContext('2d')
 export const cw = c.width = 400
 export const ch = c.height = 300
-export let arr=Array(40).fill(undefined).map((_el,i)=>(250/39)*(i+1))
+export let arr=Array(40).fill(undefined).map((_el,i)=>(i+1))
 
 export const setWorking =(isWorking:boolean)=>{working = isWorking}
 export const setActive =(isActive:number)=>{active=isActive}
 
 
 
-document.getElementById("randomize")
+document.getElementById("shuffle")
 .onclick = ()=>{if(!working) shuffle()}
 document.getElementById("bubbleSort")
 .onclick= ()=>{if(!working){bubbleSort()}}
@@ -46,7 +46,7 @@ export function draw(arr:number[]){
   for(let i in arr){
     ctx.fillStyle = sorted ? 'green': '#000000';
     ctx.fillStyle = (active >=0 && parseInt(i) ==  active) ? 'red' : ctx.fillStyle;
-    ctx.fillRect(0,ch-2,8,-arr[i])
+    ctx.fillRect(0+1,ch-1,8,-arr[i]*(250/39))
     ctx.translate(10,0)
   }
   ctx.restore()
