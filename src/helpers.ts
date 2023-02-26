@@ -16,5 +16,5 @@ export function shuffle(){
   for(let i in arr){
     swap(arr,Math.floor(Math.random()*20),i)
   }
-  draw()
+  draw(arr)
 }

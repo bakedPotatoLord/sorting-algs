@@ -14,7 +14,7 @@ export async function bubbleSort (){
       bubbleSortI++
     }
     setActive( bubbleSortI)
-    draw()
+    draw(arr)
     if(Math.random() > 0.85){
       await new Promise((res,rej)=>setTimeout(res,0))
     }

@@ -9,7 +9,7 @@ async function selectionSort(){
       max = arr[max]<arr[j] ? max : j
       await new Promise((res)=>setTimeout(res,10))
       active = j
-      draw()
+      draw(arr)
     }
     swap(arr,max,i)
   }
@@ -30,15 +30,13 @@ async function insertionSort(){
       j--;
       await new Promise((res)=>setTimeout(res,10))
       active = j
-      draw()
+      draw(arr)
     }
     arr[j+1] = temp;
-    draw()
+    draw(arr)
   }
   endSort()
 }
-
-
 
 
 export let working = false
@@ -52,6 +50,7 @@ export let arr=Array(40).fill(undefined).map((_el,i)=>(250/39)*(i+1))
 
 export const setWorking =(isWorking:boolean)=>{working = isWorking}
 export const setActive =(isActive:number)=>{active=isActive}
+
 
 
 document.getElementById("randomize")
@@ -75,7 +74,7 @@ document.getElementById("mergeSort")
 async function mergeSort(marr:number[]){
   const mid = marr.length /2
   active = arr.indexOf(marr[0])
-  draw()
+  draw(arr)
   await new Promise((res,rej)=>setTimeout(res,10))
   
   return marr.length < 2 ?
@@ -102,10 +101,10 @@ async function merge(left:number[],right:number[]){
 export function endSort(){
   active = -1
   working = false
-  draw()
+  draw(arr)
 }
 
-export function draw(){
+export function draw(arr:number[]){
   ctx.clearRect(0,0,cw,ch)
   ctx.save()
   
@@ -119,4 +118,4 @@ export function draw(){
 }
 
 
-window.onload = draw
+window.onload =()=>{ draw(arr)}
