@@ -1,5 +1,6 @@
 import {  shuffle } from "./helpers"
 import { bubbleSort, insertionSort, mergeSort, selectionSort } from "./sorts"
+import { initMergeSort } from "./sorts/mergeSort"
 
 
 export let working = false
@@ -13,7 +14,7 @@ export let arr=Array(40).fill(undefined).map((_el,i)=>(i+1))
 
 export const setWorking =(isWorking:boolean)=>{working = isWorking}
 export const setActive =(isActive:number)=>{active=isActive}
-
+export const setArr=(m_arr:number[])=>{arr = m_arr};
 
 
 document.getElementById("shuffle")
@@ -25,12 +26,7 @@ document.getElementById("selectionSort")
 document.getElementById("insertionSort")
 .onclick=()=>{if(!working){insertionSort()}}
 document.getElementById("mergeSort")
-.onclick=async ()=>{
-  if(!working){
-    arr = await mergeSort(arr)
-    endSort()
-  }
-}
+.onclick=async ()=>{if(!working){initMergeSort()}}
 
 
 export function endSort(){

@@ -1,5 +1,10 @@
-import { arr, draw, setActive } from ".."
+import { arr, draw, endSort, setActive, setArr } from ".."
 
+
+export async function initMergeSort(){
+  setArr( await mergeSort(arr) )
+  endSort()
+}
 
 export async function mergeSort(marr:number[]){
   const mid = marr.length /2
