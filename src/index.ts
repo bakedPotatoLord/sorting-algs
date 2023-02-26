@@ -1,20 +1,7 @@
 import { swap, shuffle } from "./helpers"
 import { bubbleSort } from "./sorts/bubbleSort"
+import { selectionSort } from "./sorts/selectionSort";
 
-async function selectionSort(){
-  working = true
-  for(let i = 0;i<arr.length;i++){
-    let max = i
-    for(let j =i ;j<arr.length;j++){
-      max = arr[max]<arr[j] ? max : j
-      await new Promise((res)=>setTimeout(res,10))
-      active = j
-      draw(arr)
-    }
-    swap(arr,max,i)
-  }
-  endSort()
-}
 
 
 async function insertionSort(){
