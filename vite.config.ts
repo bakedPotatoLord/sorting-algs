@@ -8,7 +8,7 @@ const outDir = resolve(__dirname,'dist')
 // https://vitejs.dev/config/
 export default <UserConfig>{
   root,
-  //base:'/sorting-algs/',
+  base:'/sorting-algs/',
   build:{
     outDir,
     emptyOutDir:true,
