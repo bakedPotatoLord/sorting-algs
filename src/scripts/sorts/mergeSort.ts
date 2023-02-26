@@ -8,9 +8,6 @@ export async function initMergeSort(){
 
 export async function mergeSort(marr:number[]){
   const mid = marr.length /2
-  setActive( arr.indexOf(marr[0]) )
-  draw(arr)
-  await new Promise((res,rej)=>setTimeout(res,50))
   
   return marr.length < 2 ?
   marr :
@@ -24,9 +21,9 @@ async function merge(left:number[],right:number[]){
   console.log("merge start")
   let arr = []
   while(left.length && right.length){
-    arr.push(
-      left[0] < right[0] ? left.shift() : right.shift()
-    )
+    arr.push(left[0] < right[0] ? left.shift() : right.shift())
+    draw(arr)
+    await new Promise((res,rej)=>setTimeout(res,40))
   }
   return [...arr,...left,...right]
 }
