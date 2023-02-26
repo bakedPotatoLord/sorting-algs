@@ -18,7 +18,7 @@ export function reverse(){
 export function semiSort(){
   setArr(Array(40).fill(undefined).map((_el,i)=>(i+1)))
   
-  for(let i = 0; i<arr.length;i+=2+Math.floor(Math.random()*3)){
+  for(let i = 0; i<arr.length;i+=Math.floor(Math.random()*3)){
     swap(arr,Math.floor(Math.random()*20),i)
   }
   endSort()
