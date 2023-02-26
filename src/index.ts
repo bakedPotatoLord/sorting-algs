@@ -1,6 +1,4 @@
-
-import { swap } from "./helpers"
-import { shuffle } from "./shuffle"
+import { swap, shuffle } from "./helpers"
 import { bubbleSort } from "./sorts/bubbleSort"
 
 async function selectionSort(){
