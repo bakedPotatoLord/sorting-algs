@@ -1,4 +1,4 @@
-import { arr, draw } from ".";
+import { arr, draw, setActive } from ".";
 
 
 export async function wait(ms:number){
@@ -12,7 +12,8 @@ export function swap(arr:any[],i1:number|string,i2:number|string){
 }
 
 export function shuffle(){
-  console.log('randomizing')
+  console.log('shuffling')
+  setActive(-1)
   for(let i in arr){
     swap(arr,Math.floor(Math.random()*20),i)
   }
