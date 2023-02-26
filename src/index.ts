@@ -1,5 +1,7 @@
 
-
+import { swap } from "./helpers"
+import { shuffle } from "./shuffle"
+import { bubbleSort } from "./sorts/bubbleSort"
 
 async function selectionSort(){
   working = true
@@ -39,20 +41,19 @@ async function insertionSort(){
 }
 
 
-function swap(arr:any[],i1:number|string,i2:number|string){
-  let temp = arr[i1];
-  arr[i1] = arr[i2];
-  arr[i2] = temp;
-}
 
-let working = false
-let active = -1
+
+export let working = false
+export let active = -1
 let sorted = true
 let c = document.querySelector('canvas')
 let ctx = c.getContext('2d')
-const cw = c.width = 400
-const ch = c.height = 300
-let arr=Array(40).fill(undefined).map((_el,i)=>(250/39)*(i+1))
+export const cw = c.width = 400
+export const ch = c.height = 300
+export let arr=Array(40).fill(undefined).map((_el,i)=>(250/39)*(i+1))
+
+export const setWorking =(isWorking:boolean)=>{working = isWorking}
+export const setActive =(isActive:number)=>{active=isActive}
 
 
 document.getElementById("randomize")
@@ -71,13 +72,7 @@ document.getElementById("mergeSort")
   }
 }
 
-function shuffle(){
-  console.log('randomizing')
-  for(let i in arr){
-    swap(arr,Math.floor(Math.random()*20),i)
-  }
-  draw()
-}
+
 
 async function mergeSort(marr:number[]){
   const mid = marr.length /2
@@ -91,8 +86,6 @@ async function mergeSort(marr:number[]){
     await mergeSort(marr.slice(0,mid)),
     await mergeSort(marr.slice(mid))
   )
-
-
 }
 
 async function merge(left:number[],right:number[]){
@@ -106,33 +99,15 @@ async function merge(left:number[],right:number[]){
   return [...arr,...left,...right]
 }
 
-async function bubbleSort (){  
-  let bubbleSortI = 1
-  working = true
 
-  while(bubbleSortI<arr.length){
-    if(arr[bubbleSortI-1] > arr[bubbleSortI]){
-      swap(arr,bubbleSortI-1,bubbleSortI)
-      bubbleSortI=1
-    }else{
-      bubbleSortI++
-    }
-    active = bubbleSortI
-    draw()
-    if(Math.random() > 0.85){
-      await new Promise((res,rej)=>setTimeout(res,0))
-    }
-  }
-  endSort()
-}
 
-function endSort(){
+export function endSort(){
   active = -1
   working = false
   draw()
 }
 
-function draw(){
+export function draw(){
   ctx.clearRect(0,0,cw,ch)
   ctx.save()
   
