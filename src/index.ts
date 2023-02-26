@@ -1,6 +1,4 @@
 
-import './style.css'
-
 
 
 async function selectionSort(){
@@ -41,7 +39,7 @@ async function insertionSort(){
 }
 
 
-export function swap(arr:any[],i1:number|string,i2:number|string){
+function swap(arr:any[],i1:number|string,i2:number|string){
   let temp = arr[i1];
   arr[i1] = arr[i2];
   arr[i2] = temp;
@@ -85,7 +83,7 @@ async function mergeSort(marr:number[]){
   const mid = marr.length /2
   active = arr.indexOf(marr[0])
   draw()
-  await new Promise((res,rej)=>setTimeout(res,100))
+  await new Promise((res,rej)=>setTimeout(res,10))
   
   return marr.length < 2 ?
   marr :
@@ -108,7 +106,7 @@ async function merge(left:number[],right:number[]){
   return [...arr,...left,...right]
 }
 
-export async function bubbleSort (){  
+async function bubbleSort (){  
   let bubbleSortI = 1
   working = true
 
@@ -134,7 +132,7 @@ function endSort(){
   draw()
 }
 
-export function draw(){
+function draw(){
   ctx.clearRect(0,0,cw,ch)
   ctx.save()
   
