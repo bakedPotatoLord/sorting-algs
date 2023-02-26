@@ -2,6 +2,7 @@ import { swap, shuffle } from "./helpers"
 import { bubbleSort } from "./sorts/bubbleSort"
 import { selectionSort } from "./sorts/selectionSort";
 import { insertionSort } from "./sorts/insertionSort";
+import { mergeSort } from "./sorts/mergeSort";
 
 export let working = false
 export let active = -1
@@ -32,34 +33,6 @@ document.getElementById("mergeSort")
     endSort()
   }
 }
-
-
-
-async function mergeSort(marr:number[]){
-  const mid = marr.length /2
-  active = arr.indexOf(marr[0])
-  draw(arr)
-  await new Promise((res,rej)=>setTimeout(res,10))
-  
-  return marr.length < 2 ?
-  marr :
-  await merge(
-    await mergeSort(marr.slice(0,mid)),
-    await mergeSort(marr.slice(mid))
-  )
-}
-
-async function merge(left:number[],right:number[]){
-  console.log("merge start")
-  let arr = []
-  while(left.length && right.length){
-    arr.push(
-      left[0] < right[0] ? left.shift() : right.shift()
-    )
-  }
-  return [...arr,...left,...right]
-}
-
 
 
 export function endSort(){
