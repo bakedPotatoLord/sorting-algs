@@ -1,4 +1,4 @@
-import {  shuffle } from './configs'
+import {  reverse, semiSort, shuffle } from './configs'
 import { bubbleSort, insertionSort, mergeSort, selectionSort } from "./sorts"
 import { initMergeSort } from "./sorts/mergeSort"
 
@@ -19,6 +19,12 @@ export const setArr=(m_arr:number[])=>{arr = m_arr};
 
 document.getElementById("shuffle")
 .onclick = ()=>{if(!working) shuffle()}
+document.getElementById("reverse")
+.onclick = ()=>{if(!working) reverse()}
+document.getElementById("semiSort")
+.onclick = ()=>{if(!working) semiSort()}
+
+
 document.getElementById("bubbleSort")
 .onclick= ()=>{if(!working){bubbleSort()}}
 document.getElementById("selectionSort")
