@@ -11,3 +11,10 @@ export function swap(arr:any[],i1:number|string,i2:number|string){
   arr[i2] = temp;
 }
 
+
+export function isSorted(arr:number[]){
+  for(let i = 1;i<arr.length;i++){
+    if(arr[i-1] > arr[i]) return false
+  }
+  return true
+}
