@@ -1,6 +1,5 @@
 import {  reverse, semiSort, shuffle } from './configs'
-import { bubbleSort, insertionSort, initMergeSort, selectionSort } from "./sorts"
-import { bozoSort } from './sorts/bozoSort'
+import { bubbleSort, insertionSort, initMergeSort, selectionSort, bozoSort } from "./sorts"
 
 
 export let working = false
