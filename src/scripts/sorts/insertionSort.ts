@@ -16,6 +16,8 @@ export async function insertionSort(){
       draw(arr)
     }
     arr[j+1] = temp;
+    setActive(i)
+    await new Promise((res)=>setTimeout(res,10))
     draw(arr)
   }
   endSort()
