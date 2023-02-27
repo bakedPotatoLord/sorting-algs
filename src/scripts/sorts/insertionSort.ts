@@ -11,13 +11,13 @@ export async function insertionSort(){
     while(j>=0 && arr[j] > temp){
       arr[j+1] = arr[j];
       j--;
-      await new Promise((res)=>setTimeout(res,10))
+      await new Promise((res)=>setTimeout(res,50))
       setActive(j)
       draw(arr)
     }
     arr[j+1] = temp;
     setActive(i)
-    await new Promise((res)=>setTimeout(res,10))
+    await new Promise((res)=>setTimeout(res,50))
     draw(arr)
   }
   endSort()
