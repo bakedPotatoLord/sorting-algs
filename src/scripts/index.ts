@@ -1,5 +1,6 @@
 import {  reverse, semiSort, shuffle } from './configs'
 import { bubbleSort, insertionSort, initMergeSort, selectionSort } from "./sorts"
+import { bozoSort } from './sorts/bozoSort'
 
 
 export let working = false
@@ -24,6 +25,8 @@ document.getElementById("semiSort")
 .onclick = ()=>{if(!working) semiSort()}
 
 
+document.getElementById("bozoSort")
+.onclick= ()=>{if(!working){bozoSort()}}
 document.getElementById("bubbleSort")
 .onclick= ()=>{if(!working){bubbleSort()}}
 document.getElementById("selectionSort")
