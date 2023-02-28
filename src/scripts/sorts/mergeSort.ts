@@ -23,7 +23,7 @@ async function merge(left:number[],right:number[]){
   while(left.length && right.length){
     arr.push(left[0] < right[0] ? left.shift() : right.shift())
     draw(arr)
-    await new Promise((res,rej)=>setTimeout(res,40))
+    await new Promise(res=>setTimeout(res,40))
   }
   return [...arr,...left,...right]
 }
